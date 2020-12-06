@@ -11,6 +11,27 @@ class Reputation extends Model
     
     public function user(){
         return $this->belongsTo(User::class);
+        
+    }
+    
+    public function color(){
+        return $this->belongsTo(Color::class);
+    }
+    
+    public function smell(){
+        return $this->belongsTo(Smell::class);
+    }
+    
+    public function taste(){
+        return $this->belongsTo(Taste::class);
+    }
+    
+    public function aftertaste(){
+        return $this->belongsTo(Aftertaste::class);
+    }
+    
+    public function how_to_drink(){
+        return $this->belongsTo(How_to_drink::class);
     }
     //
 }

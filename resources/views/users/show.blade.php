@@ -12,6 +12,9 @@
                     <img class="rounded img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
                 </div>
             </div>
+            <div>
+                最終投稿日：{{$user->reputations()->first()->updated_at->format('Y/m/d')}}
+            </div>
         </aside>
         <div class="col-sm-8">
             <ul class="nav nav-tabs nav-justified mb-3">
