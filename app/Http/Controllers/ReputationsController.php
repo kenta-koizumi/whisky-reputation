@@ -15,7 +15,7 @@ class ReputationsController extends Controller
             // 認証済みユーザを取得
             $user = \Auth::user();
             // ユーザの投稿の一覧を作成日時の降順で取得
-            $reputaions = $user->reputations()->orderBy('created_at', 'desc')->paginate(5);
+            $reputaions = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(5);
 
             $data = [
                 'user' => $user,

@@ -80,4 +80,13 @@ class User extends Authenticatable
     public function is_following($userId){
         return $this->followings()->where('follow_id', $userId)->exists();
     }
+    
+    public function feed_reputations()
+    {
+        $userIds = $this->followings()->pluck('users.id')->toArray();
+        
+        $userIds[] = $this->id;
+        
+        return Reputation::whereIn('user_id', $userIds);
+    }
 }

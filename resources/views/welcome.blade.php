@@ -9,7 +9,6 @@
                 {{-- 投稿ページへのリンク--}}
                     {!!link_to_route('reputations.create', '品評する', [], ['class' => 'btn btn-lg btn-primary btn-block']) !!}
             </aside>
-            
             @include('reputations.reputations')
         </div>
         

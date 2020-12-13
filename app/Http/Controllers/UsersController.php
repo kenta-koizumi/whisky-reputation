@@ -22,7 +22,7 @@ class UsersController extends Controller
     public function followings($id){
         $user = User::findOrFail($id);
         $user->loadRelationshipCounts();
-        $followings = $user->followings();
+        $followings = $user->followings()->paginate(10);
         
         return view('users.followings',[
             'user' => $user,
@@ -31,10 +31,12 @@ class UsersController extends Controller
         
     }
     
+    
+    
     public function followers($id){
         $user = User::findOrFail($id);
         $user->loadRelationshipCounts();
-        $followers = $user->followers();
+        $followers = $user->followers()->paginate(10);
         
         return view('users.followers',[
             'user' => $user,
