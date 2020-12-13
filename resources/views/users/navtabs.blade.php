@@ -19,5 +19,5 @@
             Followers
             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
         </a>
-    </li> 
+    </li>
 </ul>

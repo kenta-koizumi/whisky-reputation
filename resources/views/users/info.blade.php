@@ -8,6 +8,12 @@
     </div>
 </div>
 <div class="card mt-2 mb-2">
-    <p class="mt-2">最終投稿日：{{$user->reputations()->orderBy('updated_at', 'desc')->first()->updated_at->format('Y/m/d')}}</p>
-    <p class="mb-2">アルコール濃度0まで：</p>
+    
+   @if (count($user->reputations)>0)
+        <div>
+            最終投稿日：{{$user->reputations()->first()->updated_at->format('Y/m/d')}}
+        </div>
+    @else
+        <p>投稿がありません</p>
+    @endif
 </div>

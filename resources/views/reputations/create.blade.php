@@ -3,7 +3,7 @@
 @section('content')
 
 {!! Form::open(['route' => 'reputations.store']) !!}
-    <div class="form-group mb-0">
+        <div class="form-group mb-0">
         {!! Form::label('total_score', '銘柄:') !!}
         {!! Form::select('whisky_id', ['1'=>'シングルモルトウイスキー山崎', '2'=> 'サントリー シングルモルト 白州']) !!}
         </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHowtodrinkTable extends Migration
+class CreateNomikataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateHowtodrinkTable extends Migration
      */
     public function up()
     {
-        Schema::create('how_to_drink', function (Blueprint $table) {
+        Schema::create('nomikatas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('how_to_drink');
+            $table->string('nomikata');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateHowtodrinkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('how_to_drink');
+        Schema::dropIfExists('nomikatas');
     }
 }

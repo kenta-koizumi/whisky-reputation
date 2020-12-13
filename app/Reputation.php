@@ -30,8 +30,9 @@ class Reputation extends Model
         return $this->belongsTo(Aftertaste::class);
     }
     
-    public function how_to_drink(){
-        return $this->belongsTo(How_to_drink::class);
+    public function Nomikata(){
+        
+        return $this->belongsTo(Nomikata::class);
     }
     //
 }

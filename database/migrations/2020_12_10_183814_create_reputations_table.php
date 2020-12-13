@@ -24,16 +24,17 @@ class CreateReputationsTable extends Migration
             $table->unsignedBigInteger('taste_id');
             $table->unsignedBigInteger('aftertaste_id');
             $table->unsignedBigInteger('amount');
-            $table->string('comment',150);
+            $table->string('comment',100);
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('whisky_id')->references('id')->on('whiskys')->onDelete('cascade');
-            $table->foreign('howtodrink_id')->references('id')->on('how_to_drink')->onDelete('cascade');
+            $table->foreign('howtodrink_id')->references('id')->on('nomikatas')->onDelete('cascade');
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
             $table->foreign('smell_id')->references('id')->on('smells')->onDelete('cascade');
             $table->foreign('taste_id')->references('id')->on('tastes')->onDelete('cascade');
             $table->foreign('aftertaste_id')->references('id')->on('aftertastes')->onDelete('cascade');
+            
         });
     }
 

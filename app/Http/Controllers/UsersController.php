@@ -18,5 +18,28 @@ class UsersController extends Controller
             'user' => $user,
         ]);
     }
+    
+    public function followings($id){
+        $user = User::findOrFail($id);
+        $user->loadRelationshipCounts();
+        $followings = $user->followings();
+        
+        return view('users.followings',[
+            'user' => $user,
+            'users' => $followings,
+            ]);
+        
+    }
+    
+    public function followers($id){
+        $user = User::findOrFail($id);
+        $user->loadRelationshipCounts();
+        $followers = $user->followers();
+        
+        return view('users.followers',[
+            'user' => $user,
+            'users' => $followers,
+            ]);
+    }
     //
 }
