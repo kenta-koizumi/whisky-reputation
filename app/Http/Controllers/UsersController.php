@@ -12,10 +12,12 @@ class UsersController extends Controller
     {
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
-        
+        $user->loadRelationshipCounts();
+        $reputations = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(5);
         // ユーザ詳細ビューでそれを表示
         return view('users.show', [
             'user' => $user,
+            'reputations' => $reputations,
         ]);
     }
     
@@ -31,8 +33,6 @@ class UsersController extends Controller
         
     }
     
-    
-    
     public function followers($id){
         $user = User::findOrFail($id);
         $user->loadRelationshipCounts();
@@ -42,6 +42,23 @@ class UsersController extends Controller
             'user' => $user,
             'users' => $followers,
             ]);
+    }
+    
+    public function favorites($id)
+    {
+        $data = [];
+        $user = User::findOrFail($id);
+        $user->loadRelationshipCounts();
+        //
+        $favorites = $user->favorites()->paginate(10);
+
+        $data = [
+                'user' => $user,
+                'favorites' => $favorites,
+                ];
+        
+        return view('users.favorites', $data
+        );
     }
     //
 }

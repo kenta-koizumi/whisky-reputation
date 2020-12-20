@@ -20,7 +20,7 @@ class CreateFavWhiskyTable extends Migration
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('whisky_id')->references('id')->on('whiskys')->onDelete('cascade');
+            $table->foreign('whisky_id')->references('id')->on('whiskies')->onDelete('cascade');
             
             $table->unique(['user_id', 'whisky_id']);
         });

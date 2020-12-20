@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reputation extends Model
 {
-    protected $fillable = ['whisky_id', 'total_score', 'howtodrink_id', 'color_id', 'smell_id', 'taste_id', 'aftertaste_id', 'amount', 'comment'];
+    protected $fillable = ['whisky_id', 'total_score', 'way_id', 'color_id', 'smell_id', 'taste_id', 'aftertaste_id', 'amount', 'comment'];
     
     
     public function user(){
@@ -30,9 +30,13 @@ class Reputation extends Model
         return $this->belongsTo(Aftertaste::class);
     }
     
-    public function Nomikata(){
+    public function Way(){
         
-        return $this->belongsTo(Nomikata::class);
+        return $this->belongsTo(Way::class);
+    }
+    
+    public function whisky(){
+        return $this->belongsTo(Whisky::class);
     }
     //
 }

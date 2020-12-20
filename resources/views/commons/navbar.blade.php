@@ -10,7 +10,7 @@
             {!! Form::label('keyword', 'ユーザー検索:',['class' => 'text-muted mr-auto mt-2']) !!}
         </td>
         <td>
-            {!! Form::text('keyword' ,'', ['class' => 'form-control', 'placeholder' => 'キーワード'] ) !!}
+            {!! Form::text('keyword' ,'', ['class' => 'form-control', 'placeholder' => 'ユーザー名'] ) !!}
         </td>
         <td>
         {!! Form::submit('検索', ['class' => 'btn btn-primary btn-block']) !!} 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        @foreach($data as $user)
+        @foreach($users as $user)
         <img class=" rounded mr-3" src="{{ Gravatar::get($user->email, ['size' => 50]) }}" alt="ユーザー画像">
         <div class="row py-2 border-bottom text-center">
                 <div class="col-sm-3">

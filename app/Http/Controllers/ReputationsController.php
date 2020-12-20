@@ -14,6 +14,7 @@ class ReputationsController extends Controller
         if (\Auth::check()) { // 認証済みの場合
             // 認証済みユーザを取得
             $user = \Auth::user();
+            $user->loadRelationshipCounts();
             // ユーザの投稿の一覧を作成日時の降順で取得
             $reputaions = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(5);
 
@@ -45,7 +46,7 @@ class ReputationsController extends Controller
         $request->user()->reputations()->create([
             'whisky_id' => $request->whisky_id,
             'total_score' => $request->total_score,
-            'howtodrink_id' => $request->howtodrink_id,
+            'way_id' => $request->way_id,
             'color_id' => $request->color_id,
             'smell_id' => $request->smell_id,
             'taste_id' => $request->taste_id,
@@ -83,7 +84,7 @@ class ReputationsController extends Controller
         $reputation = \App\Reputation::findOrFail($id);
         if (\Auth::id() === $reputation->user_id){
             $reputation->total_score = $request->total_score;
-            $reputation->howtodrink_id = $request->howtodrink_id;
+            $reputation->way_id = $request->way_id;
             $reputation->color_id = $request->color_id;
             $reputation->smell_id = $request->smell_id;
             $reputation->taste_id = $request->taste_id;

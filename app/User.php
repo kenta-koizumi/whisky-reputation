@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
     
     public function loadRelationshipCounts(){
-        $this->loadCount('reputations', 'followings', 'followers');
+        $this->loadCount('reputations', 'followings', 'followers', 'favorites');
     }
     
     public function followings(){
@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
     
     public function followers(){
-        return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
     }
     
     public function follow($userId){
@@ -89,4 +89,38 @@ class User extends Authenticatable
         
         return Reputation::whereIn('user_id', $userIds);
     }
+    //追加
+    
+    public function favorites(){
+        return $this->belongsToMany(Whisky::class, 'fav_whisky', 'user_id', 'whisky_id')->withTimestamps();
+    }
+    
+    public function favorite($whiskyId){
+        $exist = $this->is_favorite($whiskyId);
+        
+        if ($exist === $whiskyId){
+            return true;
+        }else
+        {
+        $this->favorites()->attach($whiskyId);
+        return false;
+        }
+    }
+    
+    public function unfavorite($whiskyId){
+        $exist = $this->is_favorite($whiskyId);
+        
+        if ($exist && $whiskyId){
+            $this->favorites()->detach($whiskyId);
+        return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
+    public function is_favorite($whiskyId){
+        return $this->favorites()->where('whisky_id', $whiskyId)->exists();
+    }
+    
 }

@@ -27,12 +27,20 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
         Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
+        //お気に入り一覧
+        Route::get('favorites', 'UsersController@favorites')->name('reputations.favorites');
     });
     //検索
     Route::get('Search','SearchController@index')->name('search');
-    
+    //お気に入り
+    Route::group(['prefix' => 'microposts/{id}'], function () {
+        Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
+        Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+    });
     //user detail
     Route::resource('users', 'UsersController', ['only' => ['show']]);
+    Route::resource('whisky', 'WhiskiesController',['only' =>['show']]);
     //投稿
     Route::resource('reputations', 'ReputationsController', ['only' => ['create', 'store', 'destroy', 'edit', 'update']]);
+    
 });

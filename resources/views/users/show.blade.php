@@ -13,6 +13,7 @@
         <div class="col-sm-8">
             {{-- タブ --}}
             @include('users.navtabs')
+            @include('reputations.reputations')
         </div>
     </div>
 @endsection

@@ -5,11 +5,11 @@
         <div class="row">
             <aside class="col-sm-3">
                 {{-- ユーザー情報--}}
-                @include('users.info')
+                @include('users.show')
                 {{-- 投稿ページへのリンク--}}
-                    {!!link_to_route('reputations.create', '品評する', [], ['class' => 'btn btn-lg btn-primary btn-block']) !!}
+                 
             </aside>
-            @include('reputations.reputations')
+        {{--    @include('reputations.reputations') --}}
         </div>
         
     @else
