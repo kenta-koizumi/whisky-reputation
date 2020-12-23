@@ -3,6 +3,7 @@
         {{-- トップページへのリンク --}}
         <a class="navbar-brand pr-3" href="/">ウイスキーの品評会</a>
         
+        @if (Auth::check())
         <table class="row">
         <tr class="form-group mb-0">
         {!! Form::open(['route' => 'search', 'method' => 'get']) !!}
@@ -18,6 +19,7 @@
         {!! Form::close() !!}
         </tr>
         </table>
+        @endif
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if (Auth::check())

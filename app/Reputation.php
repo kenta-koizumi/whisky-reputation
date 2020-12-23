@@ -30,7 +30,7 @@ class Reputation extends Model
         return $this->belongsTo(Aftertaste::class);
     }
     
-    public function Way(){
+    public function way(){
         
         return $this->belongsTo(Way::class);
     }

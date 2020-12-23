@@ -51,7 +51,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         //
         $favorites = $user->favorites()->paginate(10);
-
+        
         $data = [
                 'user' => $user,
                 'favorites' => $favorites,

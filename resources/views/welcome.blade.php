@@ -6,10 +6,11 @@
             <aside class="col-sm-3">
                 {{-- ユーザー情報--}}
                 @include('users.show')
-                {{-- 投稿ページへのリンク--}}
-                 
             </aside>
-        {{--    @include('reputations.reputations') --}}
+            <div class="col-sm-8">
+            {{-- タブ --}}
+            @include('users.navtabs')
+            </div>
         </div>
         
     @else

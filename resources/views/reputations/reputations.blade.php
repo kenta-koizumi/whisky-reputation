@@ -7,12 +7,8 @@
                 <div class="media-body mb-1">
                     <div class="row mb-2">
                         {{-- 投稿内容 --}}
-                        
-                        
-                        
-                    <div class="mb-1 text-muted col-3">銘柄：{{--$reputation->whisky->whisky_name --}}{!! link_to_route('whisky.show', $reputation->whisky->whisky_name,['whisky' => $reputation->whisky->id]) !!}</div>
-                        
-                      <div class="mb-1 text-muted col-3">総合点：{{$reputation->total_score }}</div>
+                        <div class="mb-1 text-muted col-3">銘柄：{!! link_to_route('whisky.show', $reputation->whisky->whisky_name,['whisky' => $reputation->whisky->id]) !!}</div>
+                        <div class="mb-1 text-muted col-3">総合点：{{$reputation->total_score }}</div>
                         <div class="mb-1 text-muted col-3">飲み方：{{$reputation->way->way }}</div>
                         <div class="text-muted col-3">香り：{{$reputation->smell->smell}}</div>
                         <div class="text-muted col-3">色：{{$reputation->color->color}}</div>
@@ -35,9 +31,7 @@
                                 </tr>
                             
                             @else
-                            <tr>
-                           {{-- <td>@include('users.favorite_button')</td> --}}
-                            </tr>
+                           
                         @endif
                         </table>
                         </div>
