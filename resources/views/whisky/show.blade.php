@@ -19,7 +19,9 @@
             <div class="mb-1 text-muted col-12">メーカー名：{{$whisky->maker}}</div>
         </div>
 </div>
+<div class="mt-2">
 @include('users.favorite_button')
+</div>
 </aside>
 <div class="col-sm-8">
     

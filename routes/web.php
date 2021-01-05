@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     //検索
     Route::get('Search','SearchController@index')->name('search');
+    Route::get('WhiskySearch','WhiskySearchController@index')->name('whisky.search');
     //お気に入り
     Route::group(['prefix' => 'microposts/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');

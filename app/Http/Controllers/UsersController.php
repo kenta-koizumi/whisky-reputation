@@ -13,7 +13,7 @@ class UsersController extends Controller
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
         $user->loadRelationshipCounts();
-        $reputations = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(5);
+        $reputations = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(4);
         // ユーザ詳細ビューでそれを表示
         return view('users.show', [
             'user' => $user,

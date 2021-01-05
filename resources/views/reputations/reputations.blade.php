@@ -21,7 +21,6 @@
                             @if (Auth::id() == $reputation->user_id)
                                 <tr>
                                     <td>{!!link_to_route('reputations.edit','編集', ['reputation' =>$reputation->id], ['class' => 'btn btn-success btn-sm']) !!}</td>
-                                    
                             {{-- 投稿削除ボタンのフォーム --}}
                                     <td>
                                         {!! Form::open(['route' => ['reputations.destroy', $reputation->id], 'method' => 'delete']) !!}

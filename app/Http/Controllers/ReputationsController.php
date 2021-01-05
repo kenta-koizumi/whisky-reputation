@@ -16,7 +16,7 @@ class ReputationsController extends Controller
             $user = \Auth::user();
             $user->loadRelationshipCounts();
             // ユーザの投稿の一覧を作成日時の降順で取得
-            $reputations = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(5);
+            $reputations = $user->feed_reputations()->orderBy('created_at', 'desc')->paginate(4);
 
             $data = [
                 'user' => $user,
