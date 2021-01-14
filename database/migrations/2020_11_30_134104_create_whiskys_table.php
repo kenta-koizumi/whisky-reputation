@@ -13,7 +13,7 @@ class CreateWhiskysTable extends Migration
      */
     public function up()
     {
-        Schema::create('whiskys', function (Blueprint $table) {
+        Schema::create('whiskies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('whisky_name');
             $table->string('maker');
