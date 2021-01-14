@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWhiskiesTable extends Migration
+class CreateWhiskysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWhiskiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('whiskies', function (Blueprint $table) {
+        Schema::create('whiskys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('whisky_name');
             $table->string('maker');
